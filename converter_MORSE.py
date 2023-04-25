@@ -1,12 +1,9 @@
-class ConvertorMorse:
+class ConverterMorse:
 
-    def getInput(userInput):
-        if len(userInput) == 0:
-            return "Please enter your message"
-        return userInput.upper()
-
-
-    def convertor(output):
+    #using when doing unittest
+    #def getInput(userInput):
+    #    return userInput.upper()
+    def converter(output):
         userOutput = ""
         MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
                            'C': '-.-.', 'D': '-..', 'E': '.',
@@ -24,15 +21,15 @@ class ConvertorMorse:
                            '?': '..--..', '/': '-..-.', '-': '-....-',
                            '(': '-.--.', ')': '-.--.-'}
 
-        for index, char in enumerate(output) :
+        for char in output :
             #output = output.replace(output[i],MORSE_CODE_DICT[v])
-            try:
-                MORSE_CODE_DICT[char]
-            except KeyError :
-                userOutput += "n"
+            if char.upper() in MORSE_CODE_DICT:
+                userOutput += MORSE_CODE_DICT[char.upper()]
+            elif char == " ":
+                userOutput = " "
             else:
-                userOutput += MORSE_CODE_DICT[char]
+                return "Invalid input"
 
-        return userOutput
+        return userOutput.strip()
 
 

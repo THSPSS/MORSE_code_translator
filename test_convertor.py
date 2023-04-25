@@ -1,5 +1,5 @@
 import unittest
-from convertor_MORSE import ConvertorMorse as cm
+from converter_MORSE import ConvertorMorse as cm
 
 class TestConvertorMorse(unittest.TestCase):
 

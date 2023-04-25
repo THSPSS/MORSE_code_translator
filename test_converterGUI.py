@@ -4,10 +4,10 @@ from tkinter import END
 from tkinter import messagebox
 from unittest.mock import patch
 
-from convertorGUI import ConvertorGui as cg
+from converterGUI import ConverterGui as cg
 
 
-class TestConvertorMorseGUI(unittest.TestCase):
+class TestConverterMorseGUI(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
