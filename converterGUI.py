@@ -4,11 +4,12 @@ from converter_MORSE import ConverterMorse
 class ConverterGui :
 
     def __init__(self , master):
+        self.message = "Type your message here: normal text or Morse code, separating by spaces or '/'"
         self.master = master
         master.title("MORSE Code Translator")
         master.config(padx=50, pady=50)
 
-        self.label = Label(master , text="Enter your message",font=("Arial", 16, "bold"))
+        self.label = Label(master , text=self.message ,font=("Arial", 12))
         self.label.grid(column=0,row=0)
 
         self.message_entry = Entry(master,width=30)
@@ -31,8 +32,8 @@ class ConverterGui :
         if len(user_input) == 0:
             self.output_label.config(text="Please enter your message")
             return
-        user_output = ConverterMorse.converter(user_input)
-        self.morse_entry.insert(index=0,string=user_output)
+        user_output = ConverterMorse.makingList(user_input)
+        self.morse_entry.insert(index=0 ,string=user_output)
 
 root =Tk()
 morse_gui = ConverterGui(root)

@@ -1,23 +1,19 @@
 import unittest
-from converter_MORSE import ConvertorMorse as cm
+from converter_MORSE import ConverterMorse as cm
 
 class TestConvertorMorse(unittest.TestCase):
 
-    def test_get_null_input(self):
-        self.assertEqual(cm.getInput("") , "Please enter your message")
-
-    def test_get_string_input(self):
-        self.assertEqual(cm.getInput("D123"), "D123")
-
     def test_convertor(self):
-        self.assertEqual(cm.convertor("A"),'.-')
+        self.assertEqual(cm.makingList("A"),'.-')
 
     def test_convertor_string(self):
-        self.assertEqual(cm.convertor("ABCD"),'.--...-.-.-..')
+        self.assertEqual(cm.makingList("A/B/C/D"),'.- -... -.-. -..')
 
     def test_convertor_not_existing_char(self):
-        self.assertEqual(cm.convertor("ABCD#%"),'.--...-.-.-..nn')
+        self.assertEqual(cm.makingList("ABCD#%"),'Invalid input')
 
+    def test_convertor_put_morse_code(self):
+        self.assertEqual(cm.makingList(".-"),'A')
 
 
 if __name__ == '__main__':
